@@ -32,7 +32,7 @@ function calcCapnpID(){
 }
 
 export function generateCapnpID(){
-    let capnpidline = "@0x" + calcCapnpID() + "\n";
+    let capnpidline = "@0x" + calcCapnpID() + ";\n";
     const document = vscode.window.activeTextEditor.document;
     vscode.window.activeTextEditor.edit(editBuilder => {
         editBuilder.insert(new vscode.Position(0,0), capnpidline)
