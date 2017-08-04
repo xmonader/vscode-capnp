@@ -5,7 +5,7 @@ Support for capnproto (http://capnproto.org/)
 ## Features
 - Syntax Highlighting
 - Bracket matching
-- Capnp ID generator ( Ctrl+p -> GenerateCapnpID )
+- Capnp ID generator ( Ctrl+Shift+p -> GenerateCapnpID )
 
 
 Built specially for @grimpy
