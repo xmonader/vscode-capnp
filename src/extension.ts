@@ -2,7 +2,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
-
+import * as capnpid from 'capnpid';
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -22,17 +22,8 @@ export function activate(context: vscode.ExtensionContext) {
 
     context.subscriptions.push(disposable);
 }
-import * as bignum from 'big-integer'
-
-function randint(min=0, max){
-    return min + Math.floor(Math.random() * (max - min + 1))
-}
-function calcCapnpID(){
-    return bignum(randint(0, Math.pow(2, 64))).or(bignum(1).shiftLeft(63)).toString(16)
-}
-
 export function generateCapnpID(){
-    let capnpidline = "@0x" + calcCapnpID() + ";\n";
+    let capnpidline = capnpid.newCapnpID()+"\n"; 
     const document = vscode.window.activeTextEditor.document;
     vscode.window.activeTextEditor.edit(editBuilder => {
         editBuilder.insert(new vscode.Position(0,0), capnpidline)

@@ -17,30 +17,31 @@
     ],
     "main": "./out/src/extension",
     "contributes": {
-        "commands": [{
-            "command": "extension.generateCapnpID",
-            "title": "generate CapnpID"
-        }],
-        "languages": [
-        {
-            "id": "capnp",
-            "aliases": [
-                "capnp",
-                "capnp"
-            ],
-            "extensions": [
-                ".capnp"
-            ],
-            "configuration": "./capnp.configuration.json"
-        }
+        "commands": [
+            {
+                "command": "extension.generateCapnpID",
+                "title": "generate CapnpID"
+            }
         ],
-
+        "languages": [
+            {
+                "id": "capnp",
+                "aliases": [
+                    "capnp",
+                    "capnp"
+                ],
+                "extensions": [
+                    ".capnp"
+                ],
+                "configuration": "./capnp.configuration.json"
+            }
+        ],
         "grammars": [
-        {
-            "language": "capnp",
-            "scopeName": "source.capnp",
-            "path": "./syntaxes/capnp.tmLanguage"
-        }
+            {
+                "language": "capnp",
+                "scopeName": "source.capnp",
+                "path": "./syntaxes/capnp.tmLanguage"
+            }
         ]
     },
     "scripts": {
@@ -50,7 +51,7 @@
         "test": "node ./node_modules/vscode/bin/test"
     },
     "dependencies": {
-        "big-integer": "*"
+        "capnpid": "^0.1.2"
     },
     "devDependencies": {
         "typescript": "^2.0.3",

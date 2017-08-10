@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require("vscode");
+const capnpid = require("capnpid");
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 function activate(context) {
@@ -18,15 +19,8 @@ function activate(context) {
     context.subscriptions.push(disposable);
 }
 exports.activate = activate;
-const bignum = require("big-integer");
-function randint(min = 0, max) {
-    return min + Math.floor(Math.random() * (max - min + 1));
-}
-function calcCapnpID() {
-    return bignum(randint(0, Math.pow(2, 64))).or(bignum(1).shiftLeft(63)).toString(16);
-}
 function generateCapnpID() {
-    let capnpidline = "@0x" + calcCapnpID() + ";\n";
+    let capnpidline = capnpid.newCapnpID() + "\n";
     const document = vscode.window.activeTextEditor.document;
     vscode.window.activeTextEditor.edit(editBuilder => {
         editBuilder.insert(new vscode.Position(0, 0), capnpidline);
