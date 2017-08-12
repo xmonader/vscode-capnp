@@ -2,7 +2,7 @@
     "name": "vscode-capnp",
     "displayName": "vscode-capnp",
     "description": "",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "publisher": "xmonader",
     "author": "Ahmed T. Youssef <xmonader@gmail.com>",
     "engines": {
@@ -51,7 +51,7 @@
         "test": "node ./node_modules/vscode/bin/test"
     },
     "dependencies": {
-        "capnpid": "^0.1.2"
+        "capnpid": ">0.1.2"
     },
     "devDependencies": {
         "typescript": "^2.0.3",
